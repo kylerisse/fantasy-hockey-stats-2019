@@ -1,0 +1,121 @@
+# date,team1,team2,team1wins,team2wins
+# week1
+10/14/18,North Kariya,Mungs,6,4
+10/14/18,30yo boomers,Ka$e Money,4,6
+10/14/18,Mighty Gophers,Alex's Team,4,6
+10/14/18,Queso con queso,Danglesauce,9,3
+10/14/18,Boston Redcoats,Purple People,4,6
+# week 2
+10/21/18,North Kariya,30yo boomers,5,5
+10/21/18,Mungs,Purple People,6,3
+10/21/18,Mighty Gophers,Ka$e Money,5,4
+10/21/18,Queso con queso,Alex's Team,9,1
+10/21/18,Boston Redcoats,Danglesauce,6,5
+# week 3
+10/28/18,North Kariya,Mighty Gophers
+10/28/18,Mungs,30yo boomers
+10/28/18,Queso con queso,Ka$e Money
+10/28/18,Boston Redcoats,Alex's Team
+10/28/18,Danglesauce,Purple People
+# week 4
+11/4/18,North Kariya,Queso con queso
+11/4/18,Mungs,Mighty Gophers
+11/4/18,30yo boomers,Purple People
+11/4/18,Boston Redcoats,Ka$e Money
+11/4/18,Danglesauce,Alex's Team
+# week 5
+11/11/18,North Kariya,Boston Redcoats
+11/11/18,Mungs,Queso con queso
+11/11/18,30yo boomers,Mighty Gophers
+11/11/18,Danglesauce,Ka$e Money
+11/11/18,Alex's Team,Purple People
+# week 6
+11/18/18,North Kariya,Danglesauce
+11/18/18,Mungs,Boston Redcoats
+11/18/18,30yo boomers,Queso con queso
+11/18/18,Mighty Gophers,Purple People
+11/18/18,Alex's Team,Ka$e Money
+# week 7
+11/25/18,North Kariya,Alex's Team
+11/25/18,Mungs,Danglesauce
+11/25/18,30yo boomers,Boston Redcoats
+11/25/18,Mighty Gophers,Queso con queso
+11/25/18,Ka$e Money,Purple People
+# week 8
+12/2/18,North Kariya,Ka$e Money
+12/2/18,Mungs,Alex's Team
+12/2/18,30yo boomers,Danglesauce
+12/2/18,Mighty Gophers,Boston Redcoats
+12/2/18,Queso con queso,Purple People
+# week 9
+12/9/18,North Kariya,Purple People
+12/9/18,Mungs,Ka$e Money
+12/9/18,30yo boomers,Alex's Team
+12/9/18,Mighty Gophers,Danglesauce
+12/9/18,Queso con queso,Boston Redcoats
+# week 10
+12/16/18,North Kariya,Mungs
+12/16/18,30yo boomers,Ka$e Money
+12/16/18,Mighty Gophers,Alex's Team
+12/16/18,Queso con queso,Danglesauce
+12/16/18,Boston Redcoats,Purple People
+# week 11
+12/23/18,North Kariya,30yo boomers
+12/23/18,Mungs,Purple People
+12/23/18,Mighty Gophers,Ka$e Money
+12/23/18,Queso con queso,Alex's Team
+12/23/18,Boston Redcoats,Danglesauce
+# week 12
+12/30/18,North Kariya,Mighty Gophers
+12/30/18,Mungs,30yo boomers
+12/30/18,Queso con queso,Ka$e Money
+12/30/18,Boston Redcoats,Alex's Team
+12/30/18,Danglesauce,Purple People
+# week 13
+1/6/19,North Kariya,Queso con queso
+1/6/19,Mungs,Mighty Gophers
+1/6/19,30yo boomers,Purple People
+1/6/19,Boston Redcoats,Ka$e Money
+1/6/19,Danglesauce,Alex's Team
+# week 14
+1/13/19,North Kariya,Boston Redcoats
+1/13/19,Mungs,Queso con queso
+1/13/19,30yo boomers,Mighty Gophers
+1/13/19,Danglesauce,Ka$e Money
+1/13/19,Alex's Team,Purple People
+# week 15
+1/20/19,North Kariya,Danglesauce
+1/20/19,Mungs,Boston Redcoats
+1/20/19,30yo boomers,Queso con queso
+1/20/19,Mighty Gophers,Purple People
+1/20/19,Alex's Team,Ka$e Money
+# week 16
+2/3/19,North Kariya,Alex's Team
+2/3/19,Mungs,Danglesauce
+2/3/19,30yo boomers,Boston Redcoats
+2/3/19,Mighty Gophers,Queso con queso
+2/3/19,Ka$e Money,Purple People
+# week 17
+2/10/19,North Kariya,Ka$e Money
+2/10/19,Mungs,Alex's Team
+2/10/19,30yo boomers,Danglesauce
+2/10/19,Mighty Gophers,Boston Redcoats
+2/10/19,Queso con queso,Purple People
+# week 18
+2/17/19,North Kariya,Purple People
+2/17/19,Mungs,Ka$e Money
+2/17/19,30yo boomers,Alex's Team
+2/17/19,Mighty Gophers,Danglesauce
+2/17/19,Queso con queso,Boston Redcoats
+# week 19
+2/24/19,North Kariya,Mungs
+2/24/19,30yo boomers,Ka$e Money
+2/24/19,Mighty Gophers,Alex's Team
+2/24/19,Queso con queso,Danglesauce
+2/24/19,Boston Redcoats,Purple People
+# week 20
+3/3/19,North Kariya,30yo boomers
+3/3/19,Mungs,Purple People
+3/3/19,Mighty Gophers,Ka$e Money
+3/3/19,Queso con queso,Alex's Team
+3/3/19,Boston Redcoats,Danglesauce

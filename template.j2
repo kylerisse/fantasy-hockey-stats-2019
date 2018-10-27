@@ -1,0 +1,58 @@
+LeagueBegin
+  League:       Getzlaf My Lawn                            (Sort: Conf)
+    Conference: Lawn                                       (Sort: Conf) (Playoffs: 6)
+      Division: Teams                                      (Sort: Div)  (Playoffs: 0)
+        {% for item in teams -%}
+        Team:   {{ item }}
+        {% endfor %}
+  Kind: fantasy
+  Sport: hockey
+  Gender: coed
+  Country: USA
+  State: CA
+  Level: B
+  Season: 2018-2019 (current: True)
+  Author: KR
+  Note:
+  LotteryNote: 
+LeagueEnd
+
+SortBegin
+Div: Average Points, Average Points HeadToHead, Average GoalsDelta, DrawLots
+Conf: MoveClinchedToFrontBySeed, Average Points, Average Points HeadToHead,
+Average GoalsDelta, DrawLots
+SortEnd
+
+RulesBegin
+  PointsForWinInRegulation:  1
+  PointsForWinInOvertime:  1
+  PointsForWinInShootout:  1
+  PointsForLossInRegulation:  0
+  PointsForLossInOvertime:  0
+  PointsForLossInShootout:  0
+  PointsForTie:  0.5 
+  PercentOfGamesThatEndInTie:  0.2
+  PercentOfGamesThatEndInOvertimeWin:  0
+  PercentOfGamesThatEndInShootoutWin:  0
+  HomeFieldAdvantage:  0.5
+  WeightType:  PercentOfPointsWon
+  WeightExponent:  0.458
+  WhatDoYouCallATie:  tie
+  WhatDoYouCallLottery:  lottery
+  WhatDoYouCallPromoted:  promoted
+  Promote:  0
+  PromotePlus:  0
+  PromotePlusPercent:  0
+  WhatDoYouCallDemoted:  relegated
+  Demote:  0
+  DemotePlus:  0
+  DemotePlusPercent:  0
+RulesEnd
+
+GamesBegin
+TeamListedFirst: home
+{% for item in matches -%}
+{{ item[0] }}  {{ item[1] }} {{ item[3] }}  {{ item[2] }}
+{% endfor -%}
+
+GamesEnd
