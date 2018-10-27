@@ -10,86 +10,86 @@ mailTemplate = "template.j2"
 numTeams = 10
 maxTeamName = 15
 numWeeks = 20
-pointsPerWeek = 12
+matchesPerWeek = 12
 
 
 def readSchedule(file):
     try:
-        fh = open(file)
+        fh = open(file, 'r')
     except:
         print("cannot open " + file)
         exit(1)
-    schrdr = csv.reader(filter(lambda row: row[0] != '#', fh))
-    sch = []
-    for row in schrdr:
+    reader = csv.reader(filter(lambda row: row[0] != '#', fh))
+    schedule = []
+    for row in reader:
         if len(row) not in [3, 5]:
-            print("bad row in " + file + " " + str(row))
+            print("bad row in " + file + ' ' + str(row))
             exit(1)
-        sch.append(row)
+        schedule.append(row)
     fh.close()
-    return sch
+    return schedule
 
 
 def extractTeams(schedule):
-    tms = []
+    teams = []
     for row in schedule:
-        if row[1] not in tms:
-            tms.append(row[1])
-        if row[2] not in tms:
-            tms.append(row[2])
-    if len(tms) != numTeams:
-        print(sorted(tms))
-        print(str(len(tms)) + " not equal " + str(numTeams))
+        if row[1] not in teams:
+            teams.append(row[1])
+        if row[2] not in teams:
+            teams.append(row[2])
+    if len(teams) != numTeams:
+        print(sorted(teams))
+        print(str(len(teams)) + " not equal " + str(numTeams))
         exit(1)
-    for t in tms:
+    for t in teams:
         if len(t) > maxTeamName:
             print(t + " exceeds max length " + str(maxTeamName))
             exit(1)
-    return tms
+    return teams
 
 
 def generateMatches(schedule):
-    mtchs = []
+    matches = []
     for row in schedule:
-        d = row[0]
-        t1 = row[1]
-        t2 = row[2]
+        date = row[0]
+        team1 = row[1]
+        team2 = row[2]
         if len(row) < 5:
-            for m in genFutureMatches(d, t1, t2):
-                mtchs.append(m)
+            for m in genFutureMatches(date, team1, team2):
+                matches.append(m)
         else:
-            t1w = int(row[3])
-            t2w = int(row[4])
-            for m in genPastMatches(d, t1, t2, t1w, t2w):
-                mtchs.append(m)
-    return mtchs
+            team1wins = int(row[3])
+            team2wins = int(row[4])
+            for m in genPastMatches(date, team1, team2, team1wins, team2wins):
+                matches.append(m)
+    return matches
 
 
 def genPastMatches(date, team1, team2, team1wins, team2wins):
-    m = []
+    matches = []
     i = 0
-    while i < pointsPerWeek:
+    while i < matchesPerWeek:
         while team1wins > 0:
-            m.append([date, team1, team2, "1-0"])
+            matches.append([date, team1, team2, "1-0"])
             team1wins -= 1
             i += 1
         while team2wins > 0:
-            m.append([date, team1, team2, "0-1"])
+            matches.append([date, team1, team2, "0-1"])
             team2wins -= 1
             i += 1
-        if i < pointsPerWeek:
-            m.append([date, team1, team2, "0-0"])
+        if i < matchesPerWeek:
+            matches.append([date, team1, team2, "0-0"])
             i += 1
-    return m
+    return matches
 
 
 def genFutureMatches(date, team1, team2):
-    m = []
+    matches = []
     i = 0
-    while i < pointsPerWeek:
-        m.append([date, team1, team2, "   "])
+    while i < matchesPerWeek:
+        matches.append([date, team1, team2, "   "])
         i += 1
-    return m
+    return matches
 
 
 def validateMatches(matches, teams):
@@ -101,24 +101,23 @@ def validateMatches(matches, teams):
                 continue
             if t in row[2]:
                 c += 1
-        if c != (numWeeks * pointsPerWeek):
+        if c != (numWeeks * matchesPerWeek):
             print("team " + t + " has incorrect match count " + str(c))
             exit(1)
 
 
 def writeFile(teams, matches, file):
-    THIS_DIR = os.path.dirname(os.path.abspath(__file__))
-    j2_env = jinja2.Environment(loader=jinja2.FileSystemLoader(THIS_DIR))
-    text = j2_env.get_template("template.j2").render(
+    PWD = os.path.dirname(os.path.abspath(__file__))
+    j2_env = jinja2.Environment(loader=jinja2.FileSystemLoader(PWD))
+    text = j2_env.get_template(mailTemplate).render(
         teams=teams,
-        matches=matches
-    )
+        matches=matches)
     try:
-        fh = open(file, "w")
+        fh = open(file, 'w')
         fh.write(text)
         fh.close()
     except:
-        print("cloud not write to " + file)
+        print("could not write to " + file)
         exit(1)
     print("\n email body written to " + file)
 
