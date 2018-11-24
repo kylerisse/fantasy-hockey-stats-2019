@@ -50,6 +50,8 @@ def extractTeams(schedule):
 
 def generateMatches(schedule):
     matches = []
+    ties = 0
+    wins = 0
     for row in schedule:
         date = row[0]
         team1 = row[1]
@@ -60,9 +62,12 @@ def generateMatches(schedule):
         else:
             team1wins = int(row[3])
             team2wins = int(row[4])
+            wins += team1wins + team2wins
+            ties += matchesPerWeek - team1wins - team2wins
             for m in genPastMatches(date, team1, team2, team1wins, team2wins):
                 matches.append(m)
-    return matches
+    tiepct = round(ties / wins, 2)
+    return matches, tiepct
 
 
 def genPastMatches(date, team1, team2, team1wins, team2wins):
@@ -106,12 +111,13 @@ def validateMatches(matches, teams):
             exit(1)
 
 
-def writeFile(teams, matches, file):
+def writeFile(teams, matches, tiepct, file):
     PWD = os.path.dirname(os.path.abspath(__file__))
     j2_env = jinja2.Environment(loader=jinja2.FileSystemLoader(PWD))
     text = j2_env.get_template(mailTemplate).render(
         teams=teams,
-        matches=matches)
+        matches=matches,
+        tiepct=tiepct)
     try:
         fh = open(file, 'w')
         fh.write(text)
@@ -126,8 +132,8 @@ def main():
     outfile = "output_{:%Y%m%d-%H%M%S}".format(datetime.datetime.now())
     schedule = readSchedule(scheduleFile)
     teams = extractTeams(schedule)
-    matches = generateMatches(schedule)
-    writeFile(teams, matches, outfile)
+    matches, tiepct = generateMatches(schedule)
+    writeFile(teams, matches, tiepct, outfile)
 
 if __name__ == "__main__":
     main()
